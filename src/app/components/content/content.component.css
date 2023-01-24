@@ -1,0 +1,11 @@
+.indicador{
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+}
+.dorado{
+    color: gold;
+}

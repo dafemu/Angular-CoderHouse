@@ -1,8 +1,25 @@
 <div class="row">
     <div class="col">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Ipsum, autem, ullam atque dolores saepe odio totam distinctio
-          itaque et vero fugit consectetur earum enim ea illum, 
-          quidem tempora deserunt accusamus!
+        <h1>Lista de estudiantes</h1>
+        <ul>
+            <li *ngFor="let estudiante of estudiantes">{{estudiante.nombre}} - {{estudiante.edad}} - {{estudiante.fechaNacimiento | date}} - {{estudiante.calificacion}} 
+                <span class="indicador" [style.background-color]="estudiante.calificacion >=3? 'green' : 'red'"></span>
+            </li>
+        </ul>
+
+        <span class="d-block m-4">Estudiantes en rojo no aprueban el curso</span>
+
+        <h3>Informacion Estudiante mas viejo: {{estudianteMasViejo() | json }}</h3>
+        <h3>Estudiante con mejor calificacion: <span [ngClass]="mejorEstudiante ? 'dorado' : ''">{{getMejorEstudiante().nombre}}</span></h3>
+
+        <div *ngIf="profesor">
+            Califica a tus estudiantes
+        </div>
+
+        <div *ngIf="estudiante">
+            Mira Tus Calificaciones
+        </div>
+
+
     </div>
 </div>
