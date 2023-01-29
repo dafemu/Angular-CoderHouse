@@ -1,0 +1,65 @@
+<form [formGroup]="formAgregarEstudiante" (ngSubmit)="agregarEstudianteNota()">
+  <div class="mb-3">
+    <label for="nombreEstudiante" class="form-label">Nombre</label>
+    <input type="text"
+        class="form-control"
+        id="nombreEstudiante"
+        placeholder="Ingresa el nombre"
+        formControlName="nombre">
+
+      <div *ngIf="formAgregarEstudiante.controls['nombre'].touched && formAgregarEstudiante.controls['nombre'].valid" class="alert alert-success" role="alert">Campo Correcto</div>
+      <div *ngIf="formAgregarEstudiante.controls['nombre'].touched && formAgregarEstudiante.controls['nombre'].errors?.['required']" class="alert alert-danger" role="alert">Campo obligatorio</div>
+      <div *ngIf="formAgregarEstudiante.controls['nombre'].touched && formAgregarEstudiante.controls['nombre'].errors?.['minlength']" class="alert alert-danger" role="alert">Nombre no valido</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="edadEstudiante" class="form-label">Edad</label>
+    <input type="number"
+        class="form-control"
+        id="edadEstudiante"
+        placeholder="Ingresa la edad"
+        formControlName="edad">
+
+        <div *ngIf="formAgregarEstudiante.controls['edad'].touched && formAgregarEstudiante.controls['edad'].valid" class="alert alert-success">Campo Correcto</div>
+        <div *ngIf="formAgregarEstudiante.controls['edad'].touched && formAgregarEstudiante.controls['edad'].errors?.['required']" class="alert alert-danger" role="alert">Campo Obligatorio</div>
+        <div *ngIf="formAgregarEstudiante.controls['edad'].touched && formAgregarEstudiante.controls['edad'].errors?.['min']" class="alert alert-danger" role="alert">Debes ser mayor de 10 años</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="fechaNacimientoEstudiante" class="form-label">Fecha de Nacimiento</label>
+    <input type="text"
+        class="form-control"
+        id="fechaNacimientoEstudiante"
+        placeholder="Ingresa la fecha de nacimiento (dd/mm/yyyy)"
+        formControlName="fechaNacimiento">
+
+      <div *ngIf="formAgregarEstudiante.controls['fechaNacimiento'].touched && formAgregarEstudiante.controls['fechaNacimiento'].valid" class="alert alert-success" role="alert">Campo Correcto</div>
+      <div *ngIf="formAgregarEstudiante.controls['fechaNacimiento'].touched && formAgregarEstudiante.controls['fechaNacimiento'].errors?.['required']" class="alert alert-danger" role="alert">Campo obligatorio</div>
+      <div *ngIf="formAgregarEstudiante.controls['fechaNacimiento'].touched && formAgregarEstudiante.controls['fechaNacimiento'].errors?.['pattern']" class="alert alert-danger" role="alert">Fecha diligenciada incorrectamente</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="calificacionEstudiante" class="form-label">Calificacion</label>
+    <input type="number"
+        class="form-control"
+        id="calificacionEstudiante"
+        placeholder="Ingresa la calificacion"
+        formControlName="calificacion">
+
+        <div *ngIf="formAgregarEstudiante.controls['calificacion'].touched && formAgregarEstudiante.controls['calificacion'].valid" class="alert alert-success">Campo Correcto</div>
+        <div *ngIf="formAgregarEstudiante.controls['calificacion'].touched && formAgregarEstudiante.controls['calificacion'].errors?.['required']" class="alert alert-danger" role="alert">Campo Obligatorio</div>
+        <div *ngIf="formAgregarEstudiante.controls['calificacion'].touched && formAgregarEstudiante.controls['calificacion'].errors?.['min']" class="alert alert-danger" role="alert">Nota minima es cero</div>
+        <div *ngIf="formAgregarEstudiante.controls['calificacion'].touched && formAgregarEstudiante.controls['calificacion'].errors?.['max']" class="alert alert-danger" role="alert">Nota maxima es cinco</div>
+
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox"
+        class="form-check-input"
+        id="estudianteActivo"
+        formControlName="activo">
+    <label class="form-check-label" for="estudianteActivo">Estudiante Activo</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>

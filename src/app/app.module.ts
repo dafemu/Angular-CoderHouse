@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentComponent } from './components/content/content.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AgregarEstudianteComponent } from './components/agregar-estudiante/agregar-estudiante.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputMensajesComponent } from './components/input-mensajes/input-mensajes.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     SidebarComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    AgregarEstudianteComponent,
+    InputMensajesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
